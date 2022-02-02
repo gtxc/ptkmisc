@@ -1,0 +1,108 @@
+@startuml
+
+center header
+University Management System
+endheader
+
+
+class University {
+  -id : int *
+  -name : string
+  +University()
+  +University(string name)
+  +getId() : int
+  +getName() :  string
+  +setName(string name) : void
+}
+
+class Department {
+  -id : int *
+  -name : string
+  +Department()
+  +Department(string name)
+  +getId() : int
+  +getName() :  string
+  +setName(string name) : void
+  +getCode() : string
+}
+
+class Office {
+  -id : int *
+  -code : string
+  +Office()
+  +Office(string name)
+  +getId() : int
+  +getCode() :  string
+  +setCode(string code) : void
+}
+
+class Classroom  {
+  -id : int *
+  -code : string
+  +Classroom()
+  +Classroom(string name)
+  +getId() : int
+  +getCode() :  string
+  +setCode(string code) : void
+}
+
+class Employee {
+  -id : int
+  -name : string
+  -gender : Gender
+  -contact : string
+  -address : string
+  +Employee()
+  +Employee(string name)
+  +Employee(string name, string contact, string address)
+  +getId() : int
+  +getName() : string
+  +setName(string name) : void
+  +getGender() : Gender
+  +setGender(Gender gender) : void
+  +getContact() : string
+  +setContact(string contact) : string
+  +getAddress() : string
+  +setAddress(string address) : void
+}
+
+class Professor {
+  -subject : string
+  -courses : list
+  -students : list
+  +Professor()
+  +Professor(string name, string subject)
+  +getSubject() : string
+  +setSubject(string subject) : void
+  +getCourses() : list
+  +setCourses(list courses) : void
+  +getStudents() : list
+  +setStudents(list students) : void
+}
+
+class Officer {
+  -extensionNumber : string
+  +Officer()
+  +Officer(string name, string extensionNumber)
+  +getExtensionNumber() : string
+  +setExtensionNumber(string extensionNumber) : void
+}
+
+enum Gender {
+  Male,
+  Female,
+  Other
+}
+
+University -{ Department
+University ---{ Office
+University --{ Classroom
+Department --{ Office
+University ---{ Employee
+Employee }-{ Office
+Professor -up-|> Employee
+Officer -up-|> Employee
+Gender *- Employee
+
+
+@enduml
