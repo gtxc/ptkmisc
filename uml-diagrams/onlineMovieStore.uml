@@ -1,0 +1,75 @@
+@startuml
+
+center header
+Online Movie Store
+endheader
+
+class User {
+  -ip : string
+  -browser : string
+  -location : string
+  +getIp() : string
+  +getBrowser() : string
+  +getLocation() : string
+}
+
+class Registered {
+  -id : int
+  -username  : string
+  -password : string
+  +getId(): int
+  +getUsername() : string
+  +setUsername(string name) : void
+  +getPassword() : string
+  +setPassword(string password) : void
+  +login() : boolean
+  +logout() : boolean
+}
+
+class Subscriber {
+  -startDate : timestamp
+  -endDate : timestamp
+  +getStartDate() : timestamp
+  +setStartDate(timestamp startDate) : void
+  +getEndDate() : timestamp
+  +setEndDate(timestamp endDate) : void
+}
+
+class Movie {
+  -title : string
+  -duration : int
+  -director : string
+  +getTitle() : string
+  +setTitle(string title) : void
+  +getDuration() : int
+  +setDuration(int duration) : void
+  +getDirector() : string
+  +setDirector(string director) : void
+}
+
+class Content {
+  -movies : list
+  +getMovies() : list
+}
+
+class RegisteredContent {
+  +requestMovie() : boolean
+  +rentMovie() : boolean
+}
+
+class SubscribedContent {
+  +getCredit() : boolean
+  +rentMovie() : boolean
+}
+
+Content -up-{ Movie
+RegisteredContent -up-{ Content
+SubscribedContent - RegisteredContent
+User <|- Registered
+Registered <|- Subscriber
+User -up- Content
+Registered -up- RegisteredContent
+Subscriber -up- SubscribedContent
+
+
+@enduml
