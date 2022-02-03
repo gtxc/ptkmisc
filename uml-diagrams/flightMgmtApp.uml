@@ -1,0 +1,71 @@
+@startuml
+
+center header
+Flight Management System
+endheader
+
+class Airport {
+  -id : int
+  -name : string
+  +getId() : int
+  +setId(int id) : void
+  +getName() : string
+  +setName(string name) : void
+}
+
+class Airline {
+  -id : int
+  +getId() : int
+  +setId(int id) : void
+}
+
+class Plane {
+  -state : string
+  +getState() : string
+  +setState(string state) : void
+}
+
+class Airbus {
+
+}
+
+class Aircraft {
+
+}
+
+class Flight {
+  -id : int
+  -datetime : timestamp
+  -departure : string
+  -arrival : string
+  -flightTime : int
+  +getId() : int
+  +setId(int id) : void
+  +getDatetime() : timestamp
+  +setDatetime(timestamp datetime) : void
+  +getDeparture() : string
+  +setDeparture(string departure) : void
+  +getArrival() : string
+  +setArrival(string arrival) : void
+  +getFlightTime() : int
+  +setFlightTime(int flightTime) : void
+}
+
+class Pilot {
+  -experience : string
+  +getExperience() : string
+  +setExperience(string experience) : void
+}
+
+Airport }-{ Airline
+Airline }-{ Flight
+Airline --{ Plane
+Plane <|-- Airbus
+Plane <|-- Aircraft
+Plane -|{ Pilot
+Airline --{ Pilot
+Flight --|| Pilot
+Flight --|| Pilot
+
+
+@enduml
