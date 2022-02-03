@@ -1,4 +1,4 @@
-# Some sort of sorting algorithms  
+# Some sorts of sorting algorithms  
 - Insertion sort
 - Merge sort
 - Bianry search tree  
