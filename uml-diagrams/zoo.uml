@@ -1,0 +1,78 @@
+ 
+@startuml
+
+center header
+Zoo
+endheader
+
+
+abstract class Animal {
+  -name : string
+  -weight : int
+  -age : int
+  +Animal()
+  +Animal(string name)
+  +Animal(string name, int weight, int age)
+  +getName() : string
+  +setName(string name) : void
+  +getWeight() : int
+  +setWeight(int weight) : void
+  +getAge() : int
+  +setAge(int age) : void
+  +getDosage()
+  +getFeedSchedule()
+}
+
+abstract class Horses {
+  +getDosage()
+  +getFeedSchedule()
+}
+
+abstract class Felidae {
+  +getDosage()
+}
+
+abstract class Rodentia {
+
+}
+
+class Horse {
+
+}
+
+class Zebra {
+  +getDosage()
+  +getFeedSchedule()
+}
+
+class Tiger {
+  +getDosage()
+}
+
+class Lion {
+  +getFeedSchedule()
+}
+
+class Rat {
+  +getFeedSchedule()
+}
+
+class Beaver {
+  +getDosage()
+  +getFeedSchedule()
+}
+
+Animal <|-- Horses
+Animal <|-- Felidae
+Animal <|-- Rodentia
+
+Horses <|-- Horse
+Horses <|-- Zebra
+
+Felidae <|-- Tiger
+Felidae <|-- Lion
+
+Rodentia <|-- Rat
+Rodentia <|-- Beaver
+
+@enduml
