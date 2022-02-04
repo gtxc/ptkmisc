@@ -1,0 +1,102 @@
+@startuml
+
+center header
+Elevator Simulation
+endheader
+
+class Elevator {
+  -capacity : int
+  -floor : int
+  -controlPanel : ControlPanel
+  -door : Door
+  -indicatorLight : IndicatorLight
+  +getCapacity() : int
+  +getFloor() : int
+}
+
+class ControlPanel {
+  -emergencyButton : boolean
+  -targetFloor : int
+  +isEmergencyPressed() : boolean
+  +isDoorOpen() : boolean
+  +openDoor() : boolean
+  +closeDoor() : boolean
+  +setFloor(floor : int) : void
+}
+
+class Door {
+  -doorState : string
+  +getDoorState() : string
+  +setDoorState(doorState : string) : void
+}
+
+class IndicatorLight {
+  -lightState : string
+  -direction : string
+  -floorNumber : int
+  +turnLightOn() : booelan
+  +turnLightOff() : boolean
+  +showDirection() : void
+  +showFloorNumber() : void
+}
+
+class Building {
+  -name : string
+  -floor : Floor
+  +getName() : string
+  +setName(name : string) : void
+  +getFloor() : Floor
+  +setFloor(floor : Floor) : void
+}
+
+class Floor {
+  -number : int
+  -elevatorShaft : ElevatorShaft
+  -buttonSet : ButtonSet
+  -warningBell : WarningBell
+  -indicatorLight : IndicatorLight
+}
+
+class ElevatorShaft {
+  -door : Door
+}
+
+class Button {
+  -upCall : string
+  -downCall : string
+  +callElevator() : boolean
+}
+
+class ButtonSet {
+  -button1 : Button
+  -button2 : Button
+  -button3 : Button
+  +isButton1Pressed() : boolean
+  +isButton2Pressed() : boolean
+  +isButton3Pressed() : boolean
+  +getDirection() : string
+  +checkAvailableElevator() : int
+}
+
+class WarningBell {
+  -bellState : string
+  +ringBell() : boolean
+}
+
+Building *--{ Floor
+Building *-{ Elevator
+Floor *--{ ElevatorShaft
+Floor *-left-|| ButtonSet
+Floor *-|| WarningBell
+Floor *-|| IndicatorLight
+ElevatorShaft *-|| Door
+
+ButtonSet *--{ Button
+
+Elevator *--|| ControlPanel
+Elevator *--|| Door
+Elevator *--|| IndicatorLight
+Elevator -- ButtonSet
+
+
+@enduml
