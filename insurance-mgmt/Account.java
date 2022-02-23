@@ -61,10 +61,10 @@ public abstract class Account implements Comparable<Account> {
             System.out.println(PrintColor.ANSI_WHITE + " No insurance yet." + PrintColor.ANSI_RESET);
         }
         insuranceList.forEach(insurance -> System.out.println(PrintColor.ANSI_PURPLE +
-                "\n\tName       : " + insurance.getName() +
-                "\n\tPrice      : " + insurance.getPrice() +
-                "\n\tStart Date : " + insurance.getStartDate() +
-                "\n\tEnd Date   : " + insurance.getEndDate() + PrintColor.ANSI_RESET));
+                    "\n\tName       : " + insurance.getName() +
+                    "\n\tPrice      : " + insurance.getPrice() +
+                    "\n\tStart Date : " + insurance.getStartDate() +
+                    "\n\tEnd Date   : " + insurance.getEndDate() + PrintColor.ANSI_RESET));
         System.out.println(PrintColor.ANSI_YELLOW + "Authentication Status : " +
                 (getAuthenticationStatus() == null ?
                     PrintColor.ANSI_WHITE :
