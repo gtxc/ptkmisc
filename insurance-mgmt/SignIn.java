@@ -7,9 +7,9 @@ package com.gtxc.practice.insurancemgmt;
 
 import java.util.Scanner;
 
-public class SignUp {
+public class SignIn {
 
-    public static String[] signUp() {
+    public static String[] signIn() {
         Scanner scanner = new Scanner(System.in);
         String email;
         String password;
