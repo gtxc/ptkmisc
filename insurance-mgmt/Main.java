@@ -14,7 +14,7 @@ public class Main {
         AccountManager accountManager = DevBootstrap.initializeAccounts();
         accountManager.getAccounts().forEach(Account::showUserInfo);
 
-        String[] loginInfo = SignUp.signUp();
+        String[] loginInfo = SignIn.signIn();
 
         Account loggedIn = accountManager.login(loginInfo[0], loginInfo[1]);
         if (loggedIn != null) {
