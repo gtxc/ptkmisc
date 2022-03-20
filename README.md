@@ -1,2 +1,2 @@
 # ptkmisc
-contains mix study
+contains mix Java study
